@@ -28,12 +28,8 @@ export default function HeaderCategory({
             </Link>
           </li>
           <li className="text-[#219fc5]">/</li>
-          <li>
-            <Link href="/products" className="text-[#219fc5] hover:underline">
-              Products
-            </Link>
-          </li>
-          <li className="text-[#219fc5]">/</li>
+          
+          
           <li className="font-bold text-[#032f49]">{category.name}</li>
         </ol>
       </nav>

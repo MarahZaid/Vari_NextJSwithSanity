@@ -1,6 +1,5 @@
 // بيانات منتجات تصنيف VariDesk Converters (cat1) - منقولة من الفايربيز القديم
-// ملاحظة: حددنا أول 4 صور غاليري بس لكل لون حتى السكربت يخلص بوقت معقول.
-// إذا بدك كل الصور، زيد قيمة IMAGES_PER_COLOR_LIMIT فوق بالسكربت.
+// تم تضمين كل صور الغاليري لكل لون (مش مقصوصة).
 export const products = [
   {
     slug: "varidesk-pro-plus-36",
@@ -33,11 +32,11 @@ export const products = [
       warrantyText: "This product is covered by a lifetime, non-transferable warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product15a_yeyl7o", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/1_ig4afe", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/2_wqx0cx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] },
-      { name: "White", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/White_phr4jx", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_lowered_xv7yvu", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_lowered_xv7yvu", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_raised_asvhos", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_customer-review_ycixf4", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_overehead-review_lm8pif"] },
-      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_lowered_r9elb9", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_raised_mjzagf", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_lowered_r9elb9", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty"] },
-      { name: "Light Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Light_Wood_fcnjzz", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-2_cacodl", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel_kf1x2x", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-2_cacodl", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-3_nonzo1", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-5_qeljrw"] },
-      { name: "Walnut", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Walnut_nsklpk", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel_dpfhae", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-2_knmjps", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-3_ytily6", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-5_d5hcci", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-6_usgw4m"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product15a_yeyl7o", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/1_ig4afe", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/2_wqx0cx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
+      { name: "White", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/White_phr4jx", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_lowered_xv7yvu", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_lowered_xv7yvu", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_raised_asvhos", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_customer-review_ycixf4", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_overehead-review_lm8pif", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_dimensions_niw1nu", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-desktop-converter_49857_white_iso_rhlvf2", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba"] },
+      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_lowered_r9elb9", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_raised_mjzagf", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_lowered_r9elb9", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba"] },
+      { name: "Light Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Light_Wood_fcnjzz", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-2_cacodl", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel_kf1x2x", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-2_cacodl", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-3_nonzo1", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-5_qeljrw", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402483_pp36-lightwood_webstore_carousel-6_gnhuzm", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba"] },
+      { name: "Walnut", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Walnut_nsklpk", mainImage: null, hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel_dpfhae", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-2_knmjps", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-3_ytily6", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-5_d5hcci", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402482_pp36-walnut_webstore_carousel-6_usgw4m", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba"] },
     ],
   },
   {
@@ -71,8 +70,8 @@ export const products = [
       warrantyText: "5-year warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/401968_varidesk-pro-plus-36-electric_carousel-2_fuygwl", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product1b_uwr5uu", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product1b_uwr5uu", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/401968_varidesk-pro-plus-36-electric_carousel-2_fuygwl", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] },
-      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403305_varidesk-pro-plus-36-electric_enviro_lowered_jxmymd", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403305_varidesk-pro-plus-36-electric_enviro_raised_c58tzo", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403305_varidesk-pro-plus-36-electric_enviro_lowered_lpuima", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_lowered_r9elb9", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/401968_varidesk-pro-plus-36-electric_carousel-2_fuygwl", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product1b_uwr5uu", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product1b_uwr5uu", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/401968_varidesk-pro-plus-36-electric_carousel-2_fuygwl", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
+      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403305_varidesk-pro-plus-36-electric_enviro_lowered_jxmymd", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403305_varidesk-pro-plus-36-electric_enviro_raised_c58tzo", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403305_varidesk-pro-plus-36-electric_enviro_lowered_lpuima", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_lowered_r9elb9", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba"] },
     ],
   },
   {
@@ -106,7 +105,7 @@ export const products = [
       warrantyText: "Lifetime, non-transferable warranty.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2a_stzxyg", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2b_vklfv0", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2b_vklfv0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2a_stzxyg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2a_stzxyg", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2b_vklfv0", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2b_vklfv0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product2a_stzxyg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
@@ -140,7 +139,7 @@ export const products = [
       warrantyText: "Lifetime, non-transferable warranty.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3a_d9hlhn", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3b_quhopg", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3b_quhopg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3a_d9hlhn", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3a_d9hlhn", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3b_quhopg", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3b_quhopg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product3a_d9hlhn", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
@@ -174,7 +173,7 @@ export const products = [
       warrantyText: "This product is covered by a lifetime, non-transferable warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4a_vfkgvs", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4b_tcdpux", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4b_tcdpux", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4a_vfkgvs", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4a_vfkgvs", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4b_tcdpux", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4b_tcdpux", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product4a_vfkgvs", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
@@ -208,11 +207,11 @@ export const products = [
       warrantyText: "This product is covered by a lifetime, non-transferable warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5a_nruajk", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5b_tij7za", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5b_tij7za", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5a_nruajk", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5a_nruajk", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5b_tij7za", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5b_tij7za", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product5a_nruajk", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
-    slug: "varidesk-essential-vertical-lift-30",
+    slug: "variDesk-essential-vertical-lift-30",
     name: "VariDesk® Essential Vertical Lift 30",
     shortDescription: "Electric-powered standing desk converter",
     price: 229.99,
@@ -226,8 +225,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["ANSI/BIFMA"],
-      desktopDepth: "23.5",
-      desktopWidth: "36",
+      desktopDepth: "23.5\"",
+      desktopWidth: "36\"",
       finish: ["Black"],
       warranty: "5 Years",
       power: "Electric push-button",
@@ -242,7 +241,7 @@ export const products = [
       warrantyText: "5-year warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6a_jhvkuj", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6b_gqbfcz", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6b_gqbfcz", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6a_jhvkuj", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6a_jhvkuj", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6b_gqbfcz", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6b_gqbfcz", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product6a_jhvkuj", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
@@ -260,8 +259,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["Greenguard"],
-      desktopDepth: "29.75",
-      desktopWidth: "36",
+      desktopDepth: "29.75\"",
+      desktopWidth: "36\"",
       finish: ["Silver"],
       warranty: "Lifetime",
       power: null,
@@ -276,7 +275,7 @@ export const products = [
       warrantyText: "Lifetime, non-transferable warranty.",
     },
     colors: [
-      { name: "Silver", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Silver_w4hvaj", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7a_yjemcj", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7b_oec5ir", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7b_oec5ir", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7a_yjemcj", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Silver", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Silver_w4hvaj", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7a_yjemcj", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7b_oec5ir", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7b_oec5ir", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product7a_yjemcj", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
@@ -294,8 +293,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["Greenguard", "ANSI/BIFMA"],
-      desktopDepth: "23.5",
-      desktopWidth: "48",
+      desktopDepth: "23.5\"",
+      desktopWidth: "48\"",
       finish: ["Black"],
       warranty: "Lifetime",
       power: null,
@@ -310,7 +309,7 @@ export const products = [
       warrantyText: "Lifetime, non-transferable warranty.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8a_yesngq", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8b_slsrs9", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8b_slsrs9", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8a_yesngq", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8a_yesngq", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8b_slsrs9", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8b_slsrs9", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product8a_yesngq", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
@@ -328,8 +327,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["Greenguard", "ANSI/BIFMA"],
-      desktopDepth: "23.5",
-      desktopWidth: "30",
+      desktopDepth: "23.5\"",
+      desktopWidth: "30\"",
       finish: ["Black"],
       warranty: "Lifetime",
       power: null,
@@ -344,11 +343,11 @@ export const products = [
       warrantyText: "This product is covered by a lifetime, non-transferable warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product9a_pynvtp", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-home_400628_black_lowered_due3fs", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-home_400628_black_lowered_due3fs", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product9a_pynvtp", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product9a_pynvtp", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-home_400628_black_lowered_due3fs", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/vari-home_400628_black_lowered_due3fs", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product9a_pynvtp", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
-    slug: "varidesk-premier-electric-dual-monitor",
+    slug: "variDesk-premier-electric-dual-monitor",
     name: "VariDesk® Premier Electric Dual-Monitor",
     shortDescription: "Turns any desk into a standing desk",
     price: 389.25,
@@ -362,8 +361,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["Greenguard", "ANSI/BIFMA"],
-      desktopDepth: "23.5",
-      desktopWidth: "30",
+      desktopDepth: "23.5\"",
+      desktopWidth: "30\"",
       finish: ["Walnut", "Light Wood"],
       warranty: "Lifetime",
       power: null,
@@ -378,12 +377,12 @@ export const products = [
       warrantyText: "This product is covered by a lifetime, non-transferable warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Walnut", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Walnut_nsklpk", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10a_tyzrzz", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10b_qnp6fs", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10b_qnp6fs", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10a_tyzrzz", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] },
-      { name: "Light Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Light_Wood_fcnjzz", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-2_qmmnum", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-1_zbaiae", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-2_qmmnum", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-1_zbaiae", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Walnut", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Walnut_nsklpk", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10a_tyzrzz", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10b_qnp6fs", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10b_qnp6fs", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product10a_tyzrzz", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
+      { name: "Light Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Light_Wood_fcnjzz", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-2_qmmnum", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-1_zbaiae", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-2_qmmnum", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402680_varidesk-premier-electric-dual-monitor_lightwood_carousel-1_zbaiae", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
-    slug: "varidesk-premier-electric-single-monitor",
+    slug: "VariDesk-premier-electric-single-monitor",
     name: "VariDesk® Premier Electric Single-Monitor",
     shortDescription: "Turns any desk into a standing desk",
     price: 300.3,
@@ -397,8 +396,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["Greenguard", "ANSI/BIFMA"],
-      desktopDepth: "23.5",
-      desktopWidth: "36",
+      desktopDepth: "23.5\"",
+      desktopWidth: "36\"",
       finish: ["Walnut", "Light Wood"],
       warranty: "Lifetime",
       power: null,
@@ -413,12 +412,12 @@ export const products = [
       warrantyText: "This product is covered by a lifetime, non-transferable warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Walnut", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Walnut_nsklpk", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402616_varidesk-premier-electric-single-monitor_walnut_carousel-1_fnfbo3", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402616_varidesk-premier-electric-single-monitor_walnut_carousel-6_yukcbp", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product11b_rxdfdk", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product11a_rknbdo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] },
-      { name: "Light Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Light_Wood_fcnjzz", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-2_awtjlv", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-1_so9rox", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-2_awtjlv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-1_so9rox", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Walnut", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Walnut_nsklpk", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402616_varidesk-premier-electric-single-monitor_walnut_carousel-1_fnfbo3", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402616_varidesk-premier-electric-single-monitor_walnut_carousel-6_yukcbp", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product11b_rxdfdk", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product11a_rknbdo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
+      { name: "Light Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Light_Wood_fcnjzz", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-2_awtjlv", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-1_so9rox", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-2_awtjlv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402617_varidesk-premier-electric-single-monitor_lightwood_carousel-1_so9rox", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
-    slug: "varidesk-tall-40",
+    slug: "variDesk-tall-40",
     name: "VariDesk® Tall 40",
     shortDescription: "Electric-powered standing desk converter",
     price: 229.99,
@@ -432,8 +431,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["ANSI/BIFMA"],
-      desktopDepth: "23.5",
-      desktopWidth: "36",
+      desktopDepth: "23.5\"",
+      desktopWidth: "36\"",
       finish: ["Black"],
       warranty: "5 Years",
       power: "Electric push-button",
@@ -448,11 +447,11 @@ export const products = [
       warrantyText: "5-year warranty against defects in material or workmanship.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12a_swyuw2", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12b_c3zuim", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12b_c3zuim", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12a_swyuw2", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12a_swyuw2", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12b_c3zuim", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12b_c3zuim", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product12a_swyuw2", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
     ],
   },
   {
-    slug: "varidesk-premier-electric-dual-monitor-series-2",
+    slug: "variDesk-premier-electric-dual-monitor-series-2",
     name: "VariDesk® Premier Electric Dual-Monitor Series 2",
     shortDescription: "Corner-fit standing desk converter",
     price: 100.25,
@@ -466,8 +465,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["Greenguard"],
-      desktopDepth: "29.75",
-      desktopWidth: "36",
+      desktopDepth: "29.75\"",
+      desktopWidth: "36\"",
       finish: ["Black", "Espresso Wood"],
       warranty: "Lifetime",
       power: null,
@@ -482,12 +481,12 @@ export const products = [
       warrantyText: "Lifetime, non-transferable warranty.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403206_varidesk-premier-dual-monitor_series-2_black_carousel-8_aj9ooy", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403206_varidesk-premier-dual-monitor_series-2_black_carousel-7_trcqyj", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product13b_nbsigf", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product13a_ve3fgu", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] },
-      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-1_uuhdzz", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-6_whserh", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-1_uuhdzz", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-6_whserh", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403206_varidesk-premier-dual-monitor_series-2_black_carousel-8_aj9ooy", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403206_varidesk-premier-dual-monitor_series-2_black_carousel-7_trcqyj", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product13b_nbsigf", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product13a_ve3fgu", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
+      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-1_uuhdzz", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-6_whserh", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-1_uuhdzz", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403207_varidesk-premier-dual-monitor_series-2_walnut_carousel-6_whserh", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba"] },
     ],
   },
   {
-    slug: "varidesk-premier-electric-single-monitor-series-2",
+    slug: "VariDesk-premier-electric-single-Monitor-series-2",
     name: "VariDesk® Premier Electric Single-Monitor Series 2",
     shortDescription: "Wide-format standing desk converter",
     price: 389.25,
@@ -501,8 +500,8 @@ export const products = [
     reviewsBreakdown: { star1: 21, star2: 19, star3: 67, star4: 340, star5: 3552 },
     specs: {
       certifications: ["Greenguard", "ANSI/BIFMA"],
-      desktopDepth: "23.5",
-      desktopWidth: "48",
+      desktopDepth: "23.5\"",
+      desktopWidth: "48\"",
       finish: ["Black", "Espresso Wood"],
       warranty: "Lifetime",
       power: null,
@@ -517,8 +516,8 @@ export const products = [
       warrantyText: "Lifetime, non-transferable warranty.",
     },
     colors: [
-      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403200_varidesk-premier-electric-single-monitor_series-2_black_carousel-1_d6qm1v", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403200_varidesk-premier-electric-single-monitor_series-2_black_carousel-6_obqi4p", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product14b_ym8pmk", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product14a_ij5vk8", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c"] },
-      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-1_brso8c", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-6_kefxf8", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-1_brso8c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-6_kefxf8", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty"] }
+      { name: "Black", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Black_ingdsd", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403200_varidesk-premier-electric-single-monitor_series-2_black_carousel-1_d6qm1v", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403200_varidesk-premier-electric-single-monitor_series-2_black_carousel-6_obqi4p", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product14b_ym8pmk", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/product14a_ij5vk8", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/3_tzzatx", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/4_u2ek0c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/8_o8a5xo", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/9_c3uls0", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/10_a8pvhw"] },
+      { name: "Espresso Wood", colorImg: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/Espresso_Wood_eocd3j", mainImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-1_brso8c", hoverImage: "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-6_kefxf8", images: ["https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-1_brso8c", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/403202_varidesk-premier-electric-single-monitor_series-2_walnut_carousel-6_kefxf8", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_overhead_h6qpdg", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/402153-pro-plus-36-espresso-wood_iso_efnaty", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/7_laphcv", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/6_lvufry", "https://res.cloudinary.com/gkhldzc0/image/upload/f_auto,q_auto/5_cs8vba"] },
     ],
   },
 ];

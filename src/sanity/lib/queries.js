@@ -29,7 +29,7 @@ export const CATEGORY_BY_SLUG_QUERY = defineQuery(`
 `);
 
 export const PRODUCTS_BY_CATEGORY_QUERY = defineQuery(`
-  *[_type == "product" && references($categoryId)] | order(name asc) {
+  *[_type == "product" && references($categoryId)] | order(_createdAt asc) {
     _id,
     name,
     "slug": slug.current,
@@ -48,5 +48,50 @@ export const PRODUCTS_BY_CATEGORY_QUERY = defineQuery(`
       hoverImage,
       images
     }
+  }
+`);
+
+export const PRODUCT_BY_SLUG_QUERY = defineQuery(`
+  *[_type == "product" && slug.current == $slug][0] {
+    _id,
+    name,
+    "slug": slug.current,
+    shortDescription,
+    price,
+    oldPrice,
+    discountLabel,
+    hasVideo,
+    video,
+    rating,
+    reviewsCount,
+    reviewsBreakdown,
+    specs,
+    details,
+    colors[] {
+      name,
+      colorImg,
+      mainImage,
+      hoverImage,
+      images
+    },
+    "category": category-> {
+      _id,
+      name,
+      plpTitle,
+      "slug": slug.current
+    }
+  }
+`);
+
+export const REVIEWS_BY_PRODUCT_QUERY = defineQuery(`
+  *[_type == "review" && references($productId)] | order(createdAt desc) {
+    _id,
+    userName,
+    rating,
+    title,
+    comment,
+    image,
+    verified,
+    createdAt
   }
 `);
