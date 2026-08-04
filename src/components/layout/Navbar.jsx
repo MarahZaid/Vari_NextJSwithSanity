@@ -4,15 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
 import {
-  Menu,
-  X,
-  Search,
-  ShoppingCart,
-  ChevronDown,
-  ChevronUp,
-  User,
-  Globe,
+  Menu, X, Search, ShoppingCart, ChevronDown, ChevronUp, User, Globe,
 } from "lucide-react";
 
 const NAV_LINKS = [
@@ -23,27 +17,32 @@ const NAV_LINKS = [
 
 export default function Navbar({ categories = [] }) {
   const router = useRouter();
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
+  const isAdmin = !!session?.user?.isAdmin;
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsExpanded, setProductsExpanded] = useState(false);
   const [productsMenuOpen, setProductsMenuOpen] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   const productsMenuRef = useRef(null);
+  const accountMenuRef = useRef(null);
 
   useEffect(() => {
-    if (!productsMenuOpen) return;
+    if (!productsMenuOpen && !accountMenuOpen) return;
     function handleClickOutside(event) {
-      if (
-        productsMenuRef.current &&
-        !productsMenuRef.current.contains(event.target)
-      ) {
+      if (productsMenuRef.current && !productsMenuRef.current.contains(event.target)) {
         setProductsMenuOpen(false);
+      }
+      if (accountMenuRef.current && !accountMenuRef.current.contains(event.target)) {
+        setAccountMenuOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [productsMenuOpen]);
+  }, [productsMenuOpen, accountMenuOpen]);
 
   function closeMobileMenu() {
     setMobileMenuOpen(false);
@@ -59,20 +58,36 @@ export default function Navbar({ categories = [] }) {
   }
 
   function handleAccountClick() {
-    router.push("/login");
+    if (!isAuthenticated) {
+      router.push("/login");
+      return;
+    }
+    setAccountMenuOpen((prev) => !prev);
+  }
+
+  function handleMobileAccountClick() {
+    if (!isAuthenticated) {
+      router.push("/login");
+    } else {
+      router.push(isAdmin ? "/admin" : "/account");
+    }
+    closeMobileMenu();
   }
 
   return (
     <>
-      
+
       <div className="bg-[#003349] px-4 py-1.5 text-white sm:py-1">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-0.5 sm:flex-row">
-          <Link
-            href="/login"
-            className="text-[11px] text-center underline underline-offset-2 sm:text-sm"
-          >
-            🎁 SIGN UP TODAY &amp; GET 50 POINTS INSTANTLY
-          </Link>
+          {isAuthenticated ? (
+            <Link href="/account" className="text-[11px] underline underline-offset-2 sm:text-sm">
+              ⭐ YOU HAVE {session.user.points ?? 0} POINTS — REDEEM AT CHECKOUT
+            </Link>
+          ) : (
+            <Link href="/login" className="text-[11px] underline underline-offset-2 sm:text-sm">
+              🎁 SIGN UP TODAY &amp; GET 50 POINTS INSTANTLY
+            </Link>
+          )}
 
           <div className="flex items-center gap-1.5">
             <Link href="#" className="text-[10px] underline underline-offset-2 sm:text-sm">
@@ -115,14 +130,35 @@ export default function Navbar({ categories = [] }) {
           <div className="hidden flex-1 flex-col gap-1 py-2 pl-8 lg:flex">
             <div className="flex items-center justify-end mb-3">
               <div className="flex items-center gap-6">
-                <button
-                  type="button"
-                  onClick={handleAccountClick}
-                  className="flex items-center gap-1.5 text-sm font-medium text-black hover:text-[#007fad]"
-                >
-                  <User size={20} className="text-[#007fad]" />
-                  My Account
-                </button>
+                <div ref={accountMenuRef} className="relative">
+                  <button
+                    type="button"
+                    onClick={handleAccountClick}
+                    className="flex items-center gap-1.5 text-sm font-medium text-black hover:text-[#007fad]"
+                  >
+                    <User size={20} className="text-[#007fad]" />
+                    {isAuthenticated ? session.user.name : "My Account"}
+                  </button>
+
+                  {isAuthenticated && accountMenuOpen && (
+                    <div className="absolute right-0 top-full z-20 min-w-[180px] border border-black/10 bg-white py-2 shadow-lg">
+                      <Link
+                        href={isAdmin ? "/admin" : "/account"}
+                        onClick={() => setAccountMenuOpen(false)}
+                        className="block px-4 py-2 text-sm text-black hover:bg-[#f0f0f0] hover:text-[#007fad]"
+                      >
+                        {isAdmin ? "Admin Dashboard" : "My Account"}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => signOut({ callbackUrl: "/" })}
+                        className="block w-full px-4 py-2 text-left text-sm text-black hover:bg-[#f0f0f0] hover:text-[#007fad]"
+                      >
+                        Sign Out
+                      </button>
+                    </div>
+                  )}
+                </div>
 
                 <button
                   type="button"
@@ -300,7 +336,7 @@ export default function Navbar({ categories = [] }) {
                 <div className="flex flex-col bg-[#fafafa]">
                   {categories.length === 0 && (
                     <p className="px-8 py-2 text-sm text-black/50">
-                     No categories available yet
+                      No categories available yet
                     </p>
                   )}
                   {categories.map((category) => (
@@ -341,20 +377,27 @@ export default function Navbar({ categories = [] }) {
             <div className="flex flex-col gap-3 px-4 py-3">
               <button
                 type="button"
-                onClick={() => {
-                  handleAccountClick();
-                  closeMobileMenu();
-                }}
+                onClick={handleMobileAccountClick}
                 className="flex items-center gap-2.5 text-[15px] font-medium text-black"
               >
                 <User size={20} className="text-[#007fad]" />
-                My Account
+                {isAuthenticated ? session.user.name : "My Account"}
               </button>
 
-              <button
-                type="button"
-                className="flex items-center gap-2.5 text-[15px] font-medium text-black"
-              >
+              {isAuthenticated && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    signOut({ callbackUrl: "/" });
+                    closeMobileMenu();
+                  }}
+                  className="flex items-center gap-2.5 text-[15px] font-medium text-black"
+                >
+                  Sign Out
+                </button>
+              )}
+
+              <button type="button" className="flex items-center gap-2.5 text-[15px] font-medium text-black">
                 <Globe size={20} className="text-[#007fad]" />
                 United States
               </button>

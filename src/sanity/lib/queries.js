@@ -95,3 +95,14 @@ export const REVIEWS_BY_PRODUCT_QUERY = defineQuery(`
     createdAt
   }
 `);
+
+export const CUSTOMER_BY_EMAIL_QUERY = defineQuery(`
+  *[_type == "customer" && email == $email][0] {
+    _id,
+    name,
+    email,
+    passwordHash,
+    isAdmin,
+    points
+  }
+`);

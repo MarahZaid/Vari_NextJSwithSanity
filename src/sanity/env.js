@@ -13,9 +13,6 @@ export const projectId = assertValue(
 
 function assertValue(v, errorMessage) {
   if (v === undefined || v === "") {
-    // We don't throw during build so the app can still boot before
-    // a real Sanity project is connected. The client call itself
-    // will fail loudly instead once someone tries to fetch data.
     console.warn(errorMessage);
     return v ?? "";
   }
