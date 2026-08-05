@@ -106,3 +106,42 @@ export const CUSTOMER_BY_EMAIL_QUERY = defineQuery(`
     points
   }
 `);
+
+export const CUSTOMER_BY_ID_QUERY = defineQuery(`
+  *[_type == "customer" && _id == $id][0] {
+    _id,
+    name,
+    email,
+    phone,
+    address,
+    points
+  }
+`);
+
+export const ORDERS_BY_EMAIL_QUERY = defineQuery(`
+  *[_type == "order" && customerEmail == $email] | order(createdAt desc) {
+    _id,
+    customerName,
+    customerEmail,
+    items,
+    status,
+    subtotal,
+    shippingFee,
+    pointsRedeemed,
+    pointsDiscount,
+    totalAmount,
+    paymentMethod,
+    shippingAddress,
+    createdAt
+  }
+`);
+
+export const POINTS_HISTORY_BY_CUSTOMER_QUERY = defineQuery(`
+  *[_type == "pointsHistoryEntry" && references($customerId)] | order(createdAt desc) {
+    _id,
+    amount,
+    type,
+    "orderId": order->_id,
+    createdAt
+  }
+`);

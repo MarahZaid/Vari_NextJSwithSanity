@@ -13,8 +13,6 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool(),
-    // Vision lets us run raw GROQ queries from inside the Studio,
-    // handy while we're wiring up new pages.
     visionTool({ defaultApiVersion: apiVersion }),
   ],
 });
