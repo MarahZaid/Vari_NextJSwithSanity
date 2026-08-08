@@ -223,3 +223,35 @@ export const ALL_CUSTOMERS_QUERY = defineQuery(`
     createdAt
   }
 `);
+
+export const SEARCH_CATEGORIES_QUERY = defineQuery(`
+  *[_type == "category" && name match $term] | order(name asc) {
+    _id,
+    name,
+    "slug": slug.current
+  }
+`);
+
+export const SEARCH_PREVIEW_PRODUCTS_QUERY = defineQuery(`
+  *[_type == "product" && name match $term] | order(name asc) [0...5] {
+    _id,
+    name,
+    "slug": slug.current,
+    price,
+    "image": colors[0].mainImage
+  }
+`);
+
+export const SEARCH_PREVIEW_CATEGORIES_QUERY = defineQuery(`
+  *[_type == "category" && name match $term] | order(name asc) [0...4] {
+    _id,
+    name,
+    "slug": slug.current
+  }
+`);
+
+export const SEARCH_PRODUCTS_QUERY = defineQuery(`
+  *[_type == "product" && (name match $term || shortDescription match $term)] | order(name asc) {
+    _id, name, "slug": slug.current, price, oldPrice, rating, reviewsCount, hasVideo, video, colors
+  }
+`);

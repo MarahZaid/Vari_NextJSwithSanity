@@ -9,6 +9,9 @@ import {
   Menu, X, Search, ShoppingCart, ChevronDown, ChevronUp, User, Globe,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import SearchBox from "./SearchBox";
+import CartMenu from "./CartMenu";
+
 
 const NAV_LINKS = [
   { label: "Collections", href: "/collections" },
@@ -230,42 +233,14 @@ export default function Navbar({ categories = [] }) {
 
               <div className="w-[260px]">
                 <div className="flex items-center border-2 border-[#007fad] focus-within:border-[#22aaff]">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") handleSearchSubmit(searchTerm);
-                    }}
-                    className="h-9 w-full px-3 text-sm outline-none"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => handleSearchSubmit(searchTerm)}
-                    className="flex h-9 w-9 shrink-0 items-center justify-center text-[#007fad]"
-                    aria-label="بحث"
-                  >
-                    <Search size={18} />
-                  </button>
+                  <SearchBox variant="desktop" />
                 </div>
               </div>
             </div>
           </div>
 
           {/* Cart */}
-          <Link
-            href="/cart"
-            className="relative flex items-center ml-3 sm:pl-6"
-            aria-label="Cart"
-          >
-            <ShoppingCart size={26} className="text-[#007fad] sm:h-8 sm:w-8" />
-  {itemCount > 0 && (
-    <span className="absolute -right-1.5 -top-1.5 flex h-4.5 min-w-[18px] items-center justify-center rounded-full bg-[#007fad] px-1 text-[10px] font-bold text-white">
-      {itemCount}
-    </span>
-  )}
-          </Link>
+          <CartMenu className="ml-12"/>
 
   
         </div>
@@ -301,24 +276,7 @@ export default function Navbar({ categories = [] }) {
 
             <div className="px-4 pb-3">
               <div className="flex items-center border-2 border-[#007fad]">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") handleSearchSubmit(searchTerm);
-                  }}
-                  className="h-9 w-full px-3 text-sm outline-none"
-                />
-                <button
-                  type="button"
-                  onClick={() => handleSearchSubmit(searchTerm)}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center text-[#007fad]"
-                  aria-label="Search"
-                >
-                  <Search size={18} />
-                </button>
+                <SearchBox variant="mobile" />
               </div>
             </div>
 
