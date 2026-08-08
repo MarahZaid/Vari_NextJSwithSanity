@@ -1,14 +1,14 @@
-import { client } from "../../../sanity/lib/client";
+import { client } from "../../../../sanity/lib/client";
 import {
   PRODUCT_BY_SLUG_QUERY,
   REVIEWS_BY_PRODUCT_QUERY,
-} from "../../../sanity/lib/queries";
-import ProductBreadcrumb from "../../../components/product/ProductBreadcrumb";
-import ProductPageClient from "../../../components/product/ProductPageClient";
-import RatingBreakdown from "../../../components/product/RatingBreakdown";
-import ReviewSlider from "../../../components/product/ReviewSlider";
-import CustomerReviews from "../../../components/product/CustomerReviews";
-import ContactEmail from "../../../components/home/ContactEmail";
+} from "../../../../sanity/lib/queries";
+import ProductBreadcrumb from "../../../../components/product/ProductBreadcrumb";
+import ProductPageClient from "../../../../components/product/ProductPageClient";
+import RatingBreakdown from "../../../../components/product/RatingBreakdown";
+import ReviewSlider from "../../../../components/product/ReviewSlider";
+import CustomerReviews from "../../../../components/product/CustomerReviews";
+import ContactEmail from "../../../../components/home/ContactEmail";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

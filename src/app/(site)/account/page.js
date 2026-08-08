@@ -1,12 +1,12 @@
 import { redirect } from "next/navigation";
-import { auth } from "../../auth";
-import { client } from "../../sanity/lib/client";
+import { auth } from "../../../auth";
+import { client } from "../../../sanity/lib/client";
 import {
   CUSTOMER_BY_ID_QUERY,
   ORDERS_BY_EMAIL_QUERY,
   POINTS_HISTORY_BY_CUSTOMER_QUERY,
-} from "../../sanity/lib/queries";
-import AccountPageClient from "../../components/account/AccountPageClient";
+} from "../../../sanity/lib/queries";
+import AccountPageClient from "../../../components/account/AccountPageClient";
 
 export const metadata = {
   title: "My Account | Vari",

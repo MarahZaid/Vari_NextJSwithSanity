@@ -1,8 +1,8 @@
-import { client } from "../../sanity/lib/client";
-import { CATEGORY_BY_SLUG_QUERY, PRODUCTS_BY_CATEGORY_QUERY } from "../../sanity/lib/queries";
-import HeroCategory from "../../components/category/HeroCategory";
-import CategoryPageClient from "../../components/category/CategoryPageClient";
-import ContactEmail from "../../components/home/ContactEmail";
+import { client } from "../../../sanity/lib/client";
+import { CATEGORY_BY_SLUG_QUERY, PRODUCTS_BY_CATEGORY_QUERY } from "../../../sanity/lib/queries";
+import HeroCategory from "../../../components/category/HeroCategory";
+import CategoryPageClient from "../../../components/category/CategoryPageClient";
+import ContactEmail from "../../../components/home/ContactEmail";
 
 export async function generateMetadata({ searchParams }) {
   const { category: categorySlug } = await searchParams;

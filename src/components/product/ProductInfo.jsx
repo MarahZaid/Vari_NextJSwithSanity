@@ -1,11 +1,12 @@
 "use client";
-
+import { useCart } from "../../context/CartContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Minus, Plus, Heart, ChevronDown, ChevronUp } from "lucide-react";
 import RatingStars from "../ui/RatingStars";
 import { urlFor } from "../../sanity/lib/image";
+import { useSession } from "next-auth/react";
 
 function AccordionItem({ title, isOpen, onToggle, children }) {
   return (
@@ -31,6 +32,8 @@ export default function ProductInfo({
   onSelectColor,
 }) {
   const router = useRouter();
+  const { addItem } = useCart();
+  const { data: session, status: sessionStatus } = useSession();
 
   const [quantity, setQuantity] = useState(1);
   const [adding, setAdding] = useState(false);
@@ -47,14 +50,32 @@ export default function ProductInfo({
     ? `${specs.warranty.toUpperCase()} WARRANTY`
     : "WARRANTY";
 
-  async function handleAddToCart() {
-   
+ async function handleAddToCart() {
+    if (sessionStatus !== "authenticated") {
+        router.push(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
+        return;
+    }
+
     setAdding(true);
+
+    const selectedColor = colors[selectedColorIndex];
+    addItem({
+        productId: product._id,
+        name: product.name,
+        price: product.price,
+        image: (() => {
+    const src = selectedColor?.mainImage || selectedColor?.images?.[0];
+    return src ? urlFor(src).width(200).url() : null;
+})(),
+        color: selectedColor?.name || "Default",
+        stock: product.stock,
+    });
+
     await new Promise((resolve) => setTimeout(resolve, 400));
     setAdding(false);
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 2500);
-  }
+}
 
   return (
     <div className="relative">

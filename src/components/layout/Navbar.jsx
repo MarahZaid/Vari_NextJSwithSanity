@@ -8,6 +8,7 @@ import { useSession, signOut } from "next-auth/react";
 import {
   Menu, X, Search, ShoppingCart, ChevronDown, ChevronUp, User, Globe,
 } from "lucide-react";
+import { useCart } from "../../context/CartContext";
 
 const NAV_LINKS = [
   { label: "Collections", href: "/collections" },
@@ -17,6 +18,7 @@ const NAV_LINKS = [
 
 export default function Navbar({ categories = [] }) {
   const router = useRouter();
+  const { itemCount } = useCart();
   const { data: session, status } = useSession();
   const isAuthenticated = status === "authenticated";
   const isAdmin = !!session?.user?.isAdmin;
@@ -258,10 +260,14 @@ export default function Navbar({ categories = [] }) {
             aria-label="Cart"
           >
             <ShoppingCart size={26} className="text-[#007fad] sm:h-8 sm:w-8" />
-            <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-600 px-1 text-[10px] font-bold text-white">
-              0
-            </span>
+  {itemCount > 0 && (
+    <span className="absolute -right-1.5 -top-1.5 flex h-4.5 min-w-[18px] items-center justify-center rounded-full bg-[#007fad] px-1 text-[10px] font-bold text-white">
+      {itemCount}
+    </span>
+  )}
           </Link>
+
+  
         </div>
       </div>
 

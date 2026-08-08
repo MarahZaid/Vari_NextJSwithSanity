@@ -135,6 +135,12 @@ export const ORDERS_BY_EMAIL_QUERY = defineQuery(`
     createdAt
   }
 `);
+export const ORDER_BY_ID_QUERY = defineQuery(`
+  *[_type == "order" && _id == $id][0]{
+    ...,
+    "items": items[]{..., "product": product->{_id, "slug": slug.current}}
+  }
+`);
 
 export const POINTS_HISTORY_BY_CUSTOMER_QUERY = defineQuery(`
   *[_type == "pointsHistoryEntry" && references($customerId)] | order(createdAt desc) {
@@ -142,6 +148,78 @@ export const POINTS_HISTORY_BY_CUSTOMER_QUERY = defineQuery(`
     amount,
     type,
     "orderId": order->_id,
+    createdAt
+  }
+`);
+
+// ---- Admin queries ----
+
+export const ALL_PRODUCTS_QUERY = defineQuery(`
+  *[_type == "product"] | order(_createdAt desc) {
+    _id,
+    name,
+    "slug": slug.current,
+    price,
+    oldPrice,
+    stock,
+    "category": category->{_id, name},
+    "mainImage": colors[0].mainImage
+  }
+`);
+
+export const PRODUCT_BY_ID_QUERY = defineQuery(`
+  *[_type == "product" && _id == $id][0]{
+    _id,
+    name,
+    "slug": slug.current,
+    shortDescription,
+    price,
+    oldPrice,
+    discountLabel,
+    stock,
+    "category": category->{_id, name}
+  }
+`);
+
+export const ALL_CATEGORIES_QUERY = defineQuery(`
+  *[_type == "category"] | order(orderRank asc) {
+    _id,
+    name,
+    plpTitle,
+    "slug": slug.current,
+    shortDescription,
+    description,
+    mainImage,
+    discountPercentage,
+    orderRank
+  }
+`);
+
+export const ALL_ORDERS_QUERY = defineQuery(`
+  *[_type == "order"] | order(createdAt desc) {
+    _id,
+    customerName,
+    customerEmail,
+    items,
+    status,
+    subtotal,
+    shippingFee,
+    pointsDiscount,
+    totalAmount,
+    paymentMethod,
+    shippingAddress,
+    createdAt
+  }
+`);
+
+export const ALL_CUSTOMERS_QUERY = defineQuery(`
+  *[_type == "customer"] | order(createdAt desc) {
+    _id,
+    name,
+    email,
+    phone,
+    points,
+    isAdmin,
     createdAt
   }
 `);
