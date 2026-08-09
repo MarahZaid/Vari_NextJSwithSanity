@@ -1,30 +1,17 @@
 import { NextResponse } from "next/server";
-import crypto from "crypto";
 import { writeClient } from "../../../../sanity/lib/writeClient";
-import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 
 const POINTS_EARN_RATE = 0.1;
 const WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET;
 
-function verifySignature(body, signatureHeader) {
-  if (!WEBHOOK_SECRET) return true;
-  const expected = crypto
-    .createHmac("sha256", WEBHOOK_SECRET)
-    .update(body)
-    .digest("hex");
-  return signatureHeader === expected;
-}
-
 export async function POST(request) {
-  const rawBody = await request.text();
-  const signature = request.headers.get(SIGNATURE_HEADER_NAME);
+  const providedSecret = request.nextUrl.searchParams.get("secret");
 
-  const isValid = await isValidSignature(rawBody, signature, WEBHOOK_SECRET);
-  if (!isValid) {
-    return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
+  if (!WEBHOOK_SECRET || providedSecret !== WEBHOOK_SECRET) {
+    return NextResponse.json({ error: "Invalid secret" }, { status: 401 });
   }
 
-  const order = JSON.parse(rawBody);
+  const order = await request.json();
 
   if (!order?._id || order.status !== "completed" || order.pointsAwarded) {
     return NextResponse.json({ skipped: true });
