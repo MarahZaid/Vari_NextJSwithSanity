@@ -31,9 +31,24 @@ export const customer = defineType({
       type: "string",
     }),
     defineField({
-      name: "address",
-      title: "Address",
-      type: "string",
+      name: "addresses",
+      title: "Saved addresses",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "address",
+          fields: [
+            defineField({ name: "label", title: "Label", type: "string", description: "e.g. Home, Work" }),
+            defineField({ name: "fullAddress", title: "Full address", type: "text", validation: (Rule) => Rule.required() }),
+            defineField({ name: "phone", title: "Phone", type: "string" }),
+            defineField({ name: "isDefault", title: "Default address", type: "boolean", initialValue: false }),
+          ],
+          preview: {
+            select: { title: "label", subtitle: "fullAddress" },
+          },
+        },
+      ],
     }),
     defineField({
       name: "points",

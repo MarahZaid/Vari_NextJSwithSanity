@@ -259,3 +259,13 @@ export const SEARCH_PRODUCTS_QUERY = defineQuery(`
     _id, name, "slug": slug.current, price, oldPrice, rating, reviewsCount, hasVideo, video, colors
   }
 `);
+
+export const CUSTOMER_ADDRESSES_QUERY = defineQuery(`
+  *[_type == "customer" && _id == $id][0].addresses[] {
+    _key,
+    label,
+    fullAddress,
+    phone,
+    isDefault
+  }
+`);

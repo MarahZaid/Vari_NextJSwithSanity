@@ -3,10 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Plus, Minus, Trash2, ShoppingCart, ArrowLeft } from "lucide-react";
+import { Plus, Minus, Trash2, ShoppingCart, ArrowLeft, Package, X } from "lucide-react";
 import { useCart } from "../../../context/CartContext";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const BRAND = { navy: "#003349", teal: "#007fad", ink: "#1a2b33", subtle: "#6b7c84" };
 
@@ -14,6 +14,7 @@ export default function CartPage() {
   const router = useRouter();
   const { status: sessionStatus } = useSession();
   const { items, setQuantity, removeItem, subtotal, itemCount, loaded } = useCart();
+  const [itemToRemove, setItemToRemove] = useState(null);
 
   useEffect(() => {
     if (sessionStatus === "unauthenticated") {
@@ -77,12 +78,12 @@ if (sessionStatus !== "authenticated") return null;
                   <div className="flex flex-1 gap-4">
                     <div className="relative h-[88px] w-[88px] shrink-0 overflow-hidden rounded-xl border border-black/[0.08] bg-white">
                       {item.image ? (
-  <Image src={item.image} alt={item.name} fill className="object-contain" />
-) : (
-  <div className="flex h-full w-full items-center justify-center text-[#c8d2d6]">
-    <Package size={32} />
-  </div>
-)}
+                        <Image src={item.image} alt={item.name} fill className="object-contain" />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-[#c8d2d6]">
+                          <Package size={32} />
+                        </div>
+                      )}
                     </div>
 
                     <div className="min-w-0 flex-1">
@@ -92,7 +93,7 @@ if (sessionStatus !== "authenticated") return null;
 
                       <button
                         type="button"
-                        onClick={() => removeItem(item.key)}
+                        onClick={() => setItemToRemove(item)}
                         className="-ml-1 mt-1 inline-flex items-center gap-1 rounded-lg px-1 py-1 text-xs font-semibold text-red-700 hover:bg-red-50 sm:hidden"
                       >
                         <Trash2 size={14} /> Remove
@@ -127,7 +128,7 @@ if (sessionStatus !== "authenticated") return null;
 
                     <button
                       type="button"
-                      onClick={() => removeItem(item.key)}
+                      onClick={() => setItemToRemove(item)}
                       className="hidden rounded-lg p-1.5 text-red-700 hover:bg-red-50 sm:inline-flex"
                     >
                       <Trash2 size={17} />
@@ -183,6 +184,47 @@ if (sessionStatus !== "authenticated") return null;
           </div>
         </div>
       </div>
+
+      {itemToRemove && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+          <div className="w-full max-w-[420px] rounded-2xl bg-white p-6 shadow-xl">
+            <div className="mb-4 flex items-start justify-between">
+              <h2 className="text-xl font-extrabold text-[#003349]">Remove item?</h2>
+              <button
+                type="button"
+                onClick={() => setItemToRemove(null)}
+                className="rounded-lg p-1 text-[#6b7c84] hover:bg-[#f6f8f9]"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <p className="mb-6 text-[#3d4a50]">
+              Are you sure you want to remove &quot;{itemToRemove.name}&quot; from your cart?
+            </p>
+
+            <div className="flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setItemToRemove(null)}
+                className="rounded-[10px] px-5 py-2.5 text-sm font-bold text-[#003349] hover:bg-[#f6f8f9]"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  removeItem(itemToRemove.key);
+                  setItemToRemove(null);
+                }}
+                className="rounded-[10px] bg-red-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-red-700"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

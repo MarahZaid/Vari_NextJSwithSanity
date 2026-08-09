@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useCart } from "../../../context/CartContext";
+import { Plus } from "lucide-react";
 
 const POINTS_PER_DOLLAR = 100;
 
@@ -13,7 +14,11 @@ export default function CheckoutPage() {
   const router = useRouter();
   const { items, subtotal, clearCart, loaded } = useCart();
 
-  const [address, setAddress] = useState("");
+  const [savedAddresses, setSavedAddresses] = useState([]);
+  const [selectedAddressKey, setSelectedAddressKey] = useState("");
+  const [showNewAddressForm, setShowNewAddressForm] = useState(false);
+  const [newAddress, setNewAddress] = useState({ label: "", fullAddress: "", phone: "" });
+  const [savingAddress, setSavingAddress] = useState(false);
   const [phone, setPhone] = useState("");
   const [pointsToRedeem, setPointsToRedeem] = useState(0);
   const [errors, setErrors] = useState({});
@@ -34,6 +39,25 @@ export default function CheckoutPage() {
     }
   }, [loaded, items, placing, orderPlaced, router]);
 
+  useEffect(() => {
+    if (sessionStatus !== "authenticated") return;
+
+    fetch("/api/customer/addresses")
+      .then((res) => res.json())
+      .then((data) => {
+        const list = data.addresses || [];
+        setSavedAddresses(list);
+
+        const defaultAddr = list.find((a) => a.isDefault) || list[0];
+        if (defaultAddr) {
+          setSelectedAddressKey(defaultAddr._key);
+        } else {
+          setShowNewAddressForm(true);
+        }
+      })
+      .catch(() => setShowNewAddressForm(true));
+  }, [sessionStatus]);
+
   if (!loaded || sessionStatus !== "authenticated") return null;
 
   const pointsBalance = session.user.points || 0;
@@ -43,11 +67,39 @@ export default function CheckoutPage() {
   const pointsDiscount = pointsToRedeem / POINTS_PER_DOLLAR;
   const finalTotal = Math.max(total - pointsDiscount, 0);
 
+  const selectedAddress = savedAddresses.find((a) => a._key === selectedAddressKey);
+  const finalAddress = selectedAddress?.fullAddress || "";
+  const finalPhone = selectedAddress?.phone || "";
+
   function validate() {
     const next = {};
-    if (!address.trim()) next.address = "Shipping address is required";
+    if (!finalAddress.trim()) next.address = "Please select or add a shipping address";
     setErrors(next);
     return Object.keys(next).length === 0;
+  }
+
+  async function handleSaveNewAddress() {
+    if (!newAddress.fullAddress.trim()) return;
+
+    setSavingAddress(true);
+    try {
+      const res = await fetch("/api/customer/addresses", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newAddress),
+      });
+      if (!res.ok) throw new Error("Failed to save address");
+
+      const { address } = await res.json();
+      setSavedAddresses((prev) => [...prev, address]);
+      setSelectedAddressKey(address._key);
+      setShowNewAddressForm(false);
+      setNewAddress({ label: "", fullAddress: "", phone: "" });
+    } catch (err) {
+      setSubmitError(err.message);
+    } finally {
+      setSavingAddress(false);
+    }
   }
 
   async function handlePlaceOrder() {
@@ -61,8 +113,8 @@ export default function CheckoutPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           items,
-          shippingAddress: address.trim(),
-          phone: phone.trim(),
+          shippingAddress: finalAddress,
+          phone: finalPhone,
           paymentMethod: "cash",
           pointsToRedeem,
         }),
@@ -96,32 +148,99 @@ export default function CheckoutPage() {
             <div className="rounded-[18px] border border-black/[0.08] bg-white p-6">
               <p className="mb-4 font-bold text-[#003349]">Shipping details</p>
 
-              <label className="mb-4 block">
-                <span className="mb-1.5 block text-sm font-semibold text-[#003349]">
-                  Delivery address
-                </span>
-                <input
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className={`w-full rounded-[10px] border px-3 py-2.5 text-sm outline-none focus:border-[#007fad] ${errors.address ? "border-red-400" : "border-black/[0.12]"
-                    }`}
-                />
-                <span className="mt-1 block text-xs text-[#6b7c84]">
-                  {errors.address ||
-                    "This address is used for this order only — your saved profile address won't change"}
-                </span>
-              </label>
+              {savedAddresses.length > 0 && (
+                <div className="mb-4 space-y-2">
+                  {savedAddresses.map((addr) => (
+                    <label
+                      key={addr._key}
+                      className={`flex cursor-pointer items-start gap-3 rounded-[10px] border px-4 py-3 ${selectedAddressKey === addr._key
+                          ? "border-[#007fad] bg-[#007fad]/[0.06]"
+                          : "border-black/[0.12]"
+                        }`}
+                    >
+                      <input
+                        type="radio"
+                        name="address"
+                        checked={selectedAddressKey === addr._key}
+                        onChange={() => {
+                          setSelectedAddressKey(addr._key);
+                          setShowNewAddressForm(false);
+                        }}
+                        className="mt-1"
+                      />
+                      <div>
+                        <p className="font-semibold text-[#003349]">
+                          {addr.label} {addr.isDefault && <span className="text-xs text-[#007fad]">(Default)</span>}
+                        </p>
+                        <p className="text-sm text-[#6b7c84]">{addr.fullAddress}</p>
+                        {addr.phone && <p className="text-xs text-[#6b7c84]">{addr.phone}</p>}
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              )}
 
-              <label className="block">
-                <span className="mb-1.5 block text-sm font-semibold text-[#003349]">
-                  Phone (optional)
-                </span>
-                <input
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full rounded-[10px] border border-black/[0.12] px-3 py-2.5 text-sm outline-none focus:border-[#007fad]"
-                />
-              </label>
+              {!showNewAddressForm ? (
+                <button
+                  type="button"
+                  onClick={() => setShowNewAddressForm(true)}
+                  className="flex items-center gap-1.5 text-sm font-semibold text-[#007fad] hover:underline"
+                >
+                  <Plus size={16} /> Add a new address
+                </button>
+              ) : (
+                <div className="rounded-[10px] border border-black/[0.12] p-4">
+                  <label className="mb-3 block">
+                    <span className="mb-1.5 block text-sm font-semibold text-[#003349]">Label (optional)</span>
+                    <input
+                      value={newAddress.label}
+                      onChange={(e) => setNewAddress({ ...newAddress, label: e.target.value })}
+                      placeholder="e.g. Home, Work"
+                      className="w-full rounded-[10px] border border-black/[0.12] px-3 py-2.5 text-sm outline-none focus:border-[#007fad]"
+                    />
+                  </label>
+
+                  <label className="mb-3 block">
+                    <span className="mb-1.5 block text-sm font-semibold text-[#003349]">Delivery address</span>
+                    <input
+                      value={newAddress.fullAddress}
+                      onChange={(e) => setNewAddress({ ...newAddress, fullAddress: e.target.value })}
+                      className={`w-full rounded-[10px] border px-3 py-2.5 text-sm outline-none focus:border-[#007fad] ${errors.address ? "border-red-500" : "border-black/[0.12]"
+                        }`}
+                    />
+                    {errors.address && <span className="mt-1 block text-xs text-red-600">{errors.address}</span>}
+                  </label>
+
+                  <label className="mb-4 block">
+                    <span className="mb-1.5 block text-sm font-semibold text-[#003349]">Phone (optional)</span>
+                    <input
+                      value={newAddress.phone}
+                      onChange={(e) => setNewAddress({ ...newAddress, phone: e.target.value })}
+                      className="w-full rounded-[10px] border border-black/[0.12] px-3 py-2.5 text-sm outline-none focus:border-[#007fad]"
+                    />
+                  </label>
+
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={handleSaveNewAddress}
+                      disabled={savingAddress || !newAddress.fullAddress.trim()}
+                      className="rounded-[10px] bg-[#007fad] px-4 py-2.5 text-sm font-bold text-white disabled:opacity-50"
+                    >
+                      {savingAddress ? "Saving..." : "Save address"}
+                    </button>
+                    {savedAddresses.length > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => setShowNewAddressForm(false)}
+                        className="rounded-[10px] border border-black/[0.12] px-4 py-2.5 text-sm font-semibold text-[#6b7c84]"
+                      >
+                        Cancel
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="rounded-[18px] border border-black/[0.08] bg-white p-6">

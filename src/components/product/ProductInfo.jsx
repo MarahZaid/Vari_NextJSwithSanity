@@ -62,7 +62,7 @@ export default function ProductInfo({
     addItem({
       productId: product._id,
       name: product.name,
-      price: product.price,
+      price: product.finalPrice ?? product.price,
       image: (() => {
         const src = selectedColor?.mainImage || selectedColor?.images?.[0];
         return src ? urlFor(src).width(200).url() : null;

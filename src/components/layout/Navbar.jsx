@@ -13,6 +13,7 @@ import SearchBox from "./SearchBox";
 import CartMenu from "./CartMenu";
 
 
+
 const NAV_LINKS = [
   { label: "Collections", href: "/collections" },
   { label: "Workplace", href: "/workplace" },
@@ -34,6 +35,17 @@ export default function Navbar({ categories = [] }) {
 
   const productsMenuRef = useRef(null);
   const accountMenuRef = useRef(null);
+
+  const [livePoints, setLivePoints] = useState(session?.user?.points || 0);
+
+  useEffect(() => {
+    if (!session?.user) return;
+
+    fetch("/api/customer/points")
+      .then((res) => res.json())
+      .then((data) => setLivePoints(data.points))
+      .catch(() => { });
+  }, [session?.user]);
 
   useEffect(() => {
     if (!productsMenuOpen && !accountMenuOpen) return;
@@ -86,7 +98,7 @@ export default function Navbar({ categories = [] }) {
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-0.5 sm:flex-row">
           {isAuthenticated ? (
             <Link href="/account" className="text-[11px] underline underline-offset-2 sm:text-sm">
-              ⭐ YOU HAVE {session.user.points ?? 0} POINTS — REDEEM AT CHECKOUT
+              ⭐ YOU HAVE {livePoints ?? 0} POINTS — REDEEM AT CHECKOUT
             </Link>
           ) : (
             <Link href="/login" className="text-[11px] underline underline-offset-2 sm:text-sm">
@@ -240,9 +252,9 @@ export default function Navbar({ categories = [] }) {
           </div>
 
           {/* Cart */}
-          <CartMenu className="ml-12"/>
+          <CartMenu className="ml-12" />
 
-  
+
         </div>
       </div>
 
