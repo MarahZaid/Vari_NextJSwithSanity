@@ -11,7 +11,8 @@ export default function ProductCard({ product }) {
     slug,
     name,
     price,
-    oldPrice,
+    finalPrice,
+    discountPercentage,
     rating = 0,
     reviewsCount = 0,
     colors,
@@ -81,11 +82,10 @@ export default function ProductCard({ product }) {
                 type="button"
                 title={color.name}
                 onClick={() => setSelectedColor(color)}
-                className={`h-[34px] w-[34px] shrink-0 rounded-full bg-white p-[2px] transition-colors ${
-                  isSelected
+                className={`h-[34px] w-[34px] shrink-0 rounded-full bg-white p-[2px] transition-colors ${isSelected
                     ? "border-[1.7px] border-[#007fad]"
                     : "border-[1.5px] border-black hover:border-[#999]"
-                }`}
+                  }`}
               >
                 {swatchUrl && (
                   <Image
@@ -103,11 +103,13 @@ export default function ProductCard({ product }) {
 
         <h3 className="mb-3 font-semibold text-[#111]">{name}</h3>
 
-        <div className="mb-2 flex items-center gap-3">
-          {oldPrice && (
-            <span className="text-[#666] line-through">${oldPrice}</span>
+       <div className="mb-2 flex items-center gap-3">
+          {discountPercentage > 0 && (
+            <span className="text-[#666] line-through">${Number(price).toFixed(2)}</span>
           )}
-          <span className="font-semibold text-[#1f8a3d]">${price}</span>
+          <span className="font-semibold text-[#1f8a3d]">
+            ${Number(finalPrice ?? price).toFixed(2)}
+          </span>
         </div>
 
         <div className="mb-4 flex items-center gap-1.5">

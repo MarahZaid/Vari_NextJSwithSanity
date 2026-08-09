@@ -3,7 +3,7 @@ import { auth } from "../../../auth";
 import { writeClient } from "../../../sanity/lib/writeClient";
 
 const POINTS_PER_DOLLAR = 100; // 100 points = $1 discount
-const POINTS_EARN_RATE = 0.1; // earn 1 point per $0.10 spent → adjust as needed
+//const POINTS_EARN_RATE = 0.1; // earn 1 point per $0.10 spent 
 
 export async function POST(request) {
   const session = await auth();
@@ -32,7 +32,6 @@ export async function POST(request) {
   );
   const pointsDiscount = safePointsToRedeem / POINTS_PER_DOLLAR;
   const totalAmount = Math.max(subtotal + shippingFee - pointsDiscount, 0);
-  const pointsEarned = Math.round(totalAmount * POINTS_EARN_RATE);
 
   const order = await writeClient.create({
     _type: "order",
@@ -60,7 +59,7 @@ export async function POST(request) {
     createdAt: new Date().toISOString(),
   });
 
-  const newPointsBalance = pointsBalance - safePointsToRedeem + pointsEarned;
+  const newPointsBalance = pointsBalance - safePointsToRedeem;
   await writeClient.patch(customerId).set({ points: newPointsBalance }).commit();
 
   if (safePointsToRedeem > 0) {
@@ -69,16 +68,6 @@ export async function POST(request) {
       customer: { _type: "reference", _ref: customerId },
       amount: -safePointsToRedeem,
       type: "redeem",
-      order: { _type: "reference", _ref: order._id },
-      createdAt: new Date().toISOString(),
-    });
-  }
-  if (pointsEarned > 0) {
-    await writeClient.create({
-      _type: "pointsHistoryEntry",
-      customer: { _type: "reference", _ref: customerId },
-      amount: pointsEarned,
-      type: "order",
       order: { _type: "reference", _ref: order._id },
       createdAt: new Date().toISOString(),
     });

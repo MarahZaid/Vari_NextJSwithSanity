@@ -50,32 +50,32 @@ export default function ProductInfo({
     ? `${specs.warranty.toUpperCase()} WARRANTY`
     : "WARRANTY";
 
- async function handleAddToCart() {
+  async function handleAddToCart() {
     if (sessionStatus !== "authenticated") {
-        router.push(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
-        return;
+      router.push(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
+      return;
     }
 
     setAdding(true);
 
     const selectedColor = colors[selectedColorIndex];
     addItem({
-        productId: product._id,
-        name: product.name,
-        price: product.price,
-        image: (() => {
-    const src = selectedColor?.mainImage || selectedColor?.images?.[0];
-    return src ? urlFor(src).width(200).url() : null;
-})(),
-        color: selectedColor?.name || "Default",
-        stock: product.stock,
+      productId: product._id,
+      name: product.name,
+      price: product.price,
+      image: (() => {
+        const src = selectedColor?.mainImage || selectedColor?.images?.[0];
+        return src ? urlFor(src).width(200).url() : null;
+      })(),
+      color: selectedColor?.name || "Default",
+      stock: product.stock,
     });
 
     await new Promise((resolve) => setTimeout(resolve, 400));
     setAdding(false);
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 2500);
-}
+  }
 
   return (
     <div className="relative">
@@ -92,18 +92,20 @@ export default function ProductInfo({
 
       <div className="mb-1 flex items-center gap-3">
         <span className="text-2xl font-bold text-[#003b57]">
-          ${Number(product.price || 0).toFixed(2)}
+          ${Number(product.finalPrice ?? product.price).toFixed(2)}
         </span>
 
-        {product.oldPrice && (
+        {product.discountPercentage > 0 && (
           <span className="text-[#777] line-through">
-            ${Number(product.oldPrice).toFixed(2)}
+            ${Number(product.price).toFixed(2)}
           </span>
         )}
       </div>
 
-      {product.discountLabel && (
-        <p className="mb-4 font-semibold text-[#1f8a3d]">{product.discountLabel}</p>
+      {product.discountPercentage > 0 && (
+        <p className="mb-4 font-semibold text-[#1f8a3d]">
+          Save {product.discountPercentage}% on this category
+        </p>
       )}
 
       {colors.length > 0 && (
@@ -123,9 +125,8 @@ export default function ProductInfo({
                   type="button"
                   title={color.name}
                   onClick={() => onSelectColor(index)}
-                  className={`flex h-[42px] w-[42px] items-center justify-center rounded-full border transition-colors ${
-                    index === selectedColorIndex ? "border-[#009fe3]" : "border-black"
-                  }`}
+                  className={`flex h-[42px] w-[42px] items-center justify-center rounded-full border transition-colors ${index === selectedColorIndex ? "border-[#009fe3]" : "border-black"
+                    }`}
                 >
                   {swatchUrl && (
                     <Image
@@ -149,7 +150,7 @@ export default function ProductInfo({
             type="button"
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
             className="flex h-11 w-11 items-center justify-center"
-            aria-label= "Decrease quantity"
+            aria-label="Decrease quantity"
           >
             <Minus size={16} />
           </button>

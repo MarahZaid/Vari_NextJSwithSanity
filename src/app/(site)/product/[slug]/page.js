@@ -1,13 +1,10 @@
+import { Suspense } from "react";
 import { client } from "../../../../sanity/lib/client";
-import {
-  PRODUCT_BY_SLUG_QUERY,
-  REVIEWS_BY_PRODUCT_QUERY,
-} from "../../../../sanity/lib/queries";
+import { PRODUCT_BY_SLUG_QUERY } from "../../../../sanity/lib/queries";
 import ProductBreadcrumb from "../../../../components/product/ProductBreadcrumb";
 import ProductPageClient from "../../../../components/product/ProductPageClient";
-import RatingBreakdown from "../../../../components/product/RatingBreakdown";
-import ReviewSlider from "../../../../components/product/ReviewSlider";
-import CustomerReviews from "../../../../components/product/CustomerReviews";
+import ReviewsSection from "../../../../components/product/ReviewsSection";
+import ReviewsSkeleton from "../../../../components/skeletons/ReviewsSkeleton";
 import ContactEmail from "../../../../components/home/ContactEmail";
 
 export async function generateMetadata({ params }) {
@@ -47,12 +44,6 @@ export default async function ProductPage({ params }) {
     );
   }
 
-  const reviews = await client.fetch(
-    REVIEWS_BY_PRODUCT_QUERY,
-    { productId: product._id },
-    { next: { revalidate: 30 } }
-  );
-
   return (
     <>
       <div className="mx-auto max-w-[1600px] px-4 py-6 sm:px-6 lg:px-10">
@@ -60,14 +51,9 @@ export default async function ProductPage({ params }) {
 
         <ProductPageClient product={product} />
 
-        <ReviewSlider reviews={reviews} />
-
-        <div className="mx-auto max-w-4xl">
-          <RatingBreakdown product={product} />
-        </div>
-        <div className="mx-auto max-w-7xl">
-          <CustomerReviews reviews={reviews} />
-        </div>
+        <Suspense fallback={<ReviewsSkeleton />}>
+          <ReviewsSection product={product} />
+        </Suspense>
       </div>
 
       <ContactEmail />

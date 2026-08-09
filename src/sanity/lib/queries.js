@@ -28,31 +28,30 @@ export const CATEGORY_BY_SLUG_QUERY = defineQuery(`
   }
 `);
 
+
+
 export const PRODUCTS_BY_CATEGORY_QUERY = defineQuery(`
-  *[_type == "product" && references($categoryId)] | order(_createdAt asc) {
+  *[_type == "product" && category._ref == $categoryId] | order(_createdAt asc) {
     _id,
     name,
     "slug": slug.current,
     price,
-    oldPrice,
-    discountLabel,
+    "discountPercentage": category->discountPercentage,
+    "finalPrice": select(
+      category->discountPercentage > 0 => round(price - (price * category->discountPercentage / 100), 2),
+      price
+    ),
     rating,
     reviewsCount,
     hasVideo,
     video,
-    specs,
-    colors[] {
-      name,
-      colorImg,
-      mainImage,
-      hoverImage,
-      images
-    }
+    colors,
+    specs
   }
 `);
 
 export const PRODUCT_BY_SLUG_QUERY = defineQuery(`
-  *[_type == "product" && slug.current == $slug][0] {
+  *[_type == "product" && slug.current == $slug][0]{
     _id,
     name,
     "slug": slug.current,
@@ -79,7 +78,12 @@ export const PRODUCT_BY_SLUG_QUERY = defineQuery(`
       name,
       plpTitle,
       "slug": slug.current
-    }
+    },
+    "discountPercentage": category->discountPercentage,
+"finalPrice": select(
+  category->discountPercentage > 0 => round(price - (price * category->discountPercentage / 100), 2),
+  price
+),
   }
 `);
 

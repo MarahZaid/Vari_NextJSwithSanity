@@ -21,6 +21,7 @@ export const order = defineType({
       to: [{ type: "customer" }],
       description: "Optional – useful if you want to link the request to an actual account in the studio.",
     }),
+
     defineField({
       name: "customerName",
       title: "Customer name",
@@ -86,6 +87,14 @@ export const order = defineType({
       title: "Created at",
       type: "datetime",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "pointsAwarded",
+      title: "Points Awarded",
+      type: "boolean",
+      initialValue: false,
+      description: "Set automatically once loyalty points have been credited for this order",
+      readOnly: true,
     }),
   ],
   preview: {
