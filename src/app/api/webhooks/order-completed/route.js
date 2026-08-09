@@ -10,6 +10,7 @@ export async function POST(request) {
   if (!WEBHOOK_SECRET || providedSecret !== WEBHOOK_SECRET) {
     return NextResponse.json({ error: "Invalid secret" }, { status: 401 });
   }
+  
 
   const order = await request.json();
 
