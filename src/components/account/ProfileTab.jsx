@@ -36,7 +36,7 @@ export default function ProfileTab({ customer, onUpdated }) {
   }
 
   return (
-    <div className="max-w-[480px]">
+    <div >
       <h2 className="mb-6 text-lg font-extrabold text-[#003349]">
         Profile Information
       </h2>
