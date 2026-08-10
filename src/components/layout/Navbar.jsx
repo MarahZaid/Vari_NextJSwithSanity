@@ -9,6 +9,7 @@ import {
   Menu, X, Search, ShoppingCart, ChevronDown, ChevronUp, User, Globe,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import { useLivePoints } from "../../hooks/useLivePoints";
 import SearchBox from "./SearchBox";
 import CartMenu from "./CartMenu";
 
@@ -26,6 +27,7 @@ export default function Navbar({ categories = [] }) {
   const { data: session, status } = useSession();
   const isAuthenticated = status === "authenticated";
   const isAdmin = !!session?.user?.isAdmin;
+  const livePoints = useLivePoints();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsExpanded, setProductsExpanded] = useState(false);
@@ -35,17 +37,6 @@ export default function Navbar({ categories = [] }) {
 
   const productsMenuRef = useRef(null);
   const accountMenuRef = useRef(null);
-
-  const [livePoints, setLivePoints] = useState(session?.user?.points || 0);
-
-  useEffect(() => {
-    if (!session?.user) return;
-
-    fetch("/api/customer/points")
-      .then((res) => res.json())
-      .then((data) => setLivePoints(data.points))
-      .catch(() => { });
-  }, [session?.user]);
 
   useEffect(() => {
     if (!productsMenuOpen && !accountMenuOpen) return;
