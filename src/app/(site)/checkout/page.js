@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useCart } from "../../../context/CartContext";
 import { Plus } from "lucide-react";
+import { useLivePoints } from "../../../hooks/useLivePoints";
 
 const POINTS_PER_DOLLAR = 100;
 
@@ -60,7 +61,7 @@ export default function CheckoutPage() {
 
   if (!loaded || sessionStatus !== "authenticated") return null;
 
-  const pointsBalance = session.user.points || 0;
+  const pointsBalance = useLivePoints();
   const shipping = subtotal > 0 && subtotal < 200 ? 15 : 0;
   const total = subtotal + shipping;
   const maxRedeemable = Math.min(pointsBalance, Math.floor(total * POINTS_PER_DOLLAR));
