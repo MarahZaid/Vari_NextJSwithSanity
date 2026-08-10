@@ -31,6 +31,11 @@ export const customer = defineType({
       type: "string",
     }),
     defineField({
+      name: "address",
+      title: "Address",
+      type: "string",
+    }),
+    defineField({
       name: "addresses",
       title: "Saved addresses",
       type: "array",
